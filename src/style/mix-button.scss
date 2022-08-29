@@ -1,0 +1,49 @@
+.mix-button {
+  width: 200px;
+
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #27861b;
+
+  // border: 1px solid red;
+  // background-color: #861b1b33;
+
+  // user-select: none;
+  pointer-events: none;
+  // border: 1px solid #3e3e3e;
+  background-color: rgb(65 65 65 / 20%);
+  color: #4a4a4a;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+  &:active {
+    filter: brightness(0.9);
+  }
+  &.active {
+    // display: block;
+
+    // border: 1px solid red;
+    // background-color: #861b1b33;
+    // color: #ddd;
+
+    // border: 1px solid #3a7100;
+    // background-color: rgb(27 134 60 / 20%);
+    // color: #afd2af;
+
+    // cursor: pointer;
+    // pointer-events: all;
+
+    display: block;
+    /* border: 1px solid red; */
+    /* background-color: rgba(134, 27, 27, 0.2); */
+    color: #ddd;
+    /* border: 1px solid #3a7100; */
+    background-color: rgb(0 109 34);
+    /* color: #afd2af; */
+    cursor: pointer;
+    pointer-events: all;
+
+  }
+}

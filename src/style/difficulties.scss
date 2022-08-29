@@ -1,0 +1,29 @@
+.difficulties {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 7px 25px 17px;
+  
+  &__difficulty {
+    width: 120px;
+    padding: 5px;
+    /* border: 1px solid red; */
+    border-radius: 3px;
+    background-color: #676767;
+    cursor: pointer;
+    &.active {
+      background-color: #9b0404;
+      background-color: #045e9b;
+    }
+    &:hover {
+      filter: brightness(1.1);
+    }
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+}
+

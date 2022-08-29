@@ -5,9 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eldritch</title>
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./src/style/index.scss" />
+    <link rel="shortcut icon" href="./assets/home.png" type="image/x-icon" />
+    <script src="./index.js" defer></script>
   </head>
   <body class="body">
+    <main class="main">
+      <section class="difficulties">
+        <div class="difficulties__difficulty">Очень легко</div>
+        <div class="difficulties__difficulty active">Легко</div>
+        <div class="difficulties__difficulty">Средне</div>
+        <div class="difficulties__difficulty">Тяжело</div>
+        <div class="difficulties__difficulty">Очень тяжко</div>
+      </section>
 
+      <section class="levels">
+        <div class="levels__level">
+          <img
+            class="levels__logo active"
+            src="./assets/Ancients/Cthulthu.png"
+            alt="Cthulthu"
+            id="cthulhu"
+          />
+        </div>
+
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/ShubNiggurath.png"
+            alt="ShubNiggurath"
+            id="shubNiggurath"
+          />
+        </div>
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/IogSothoth.png"
+            alt="IogSothoth"
+            id="iogSothoth"
+          />
+        </div>
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/Azathoth.png"
+            alt="Azathoth"
+            id="azathoth"
+          />
+        </div>
+      </section>
+
+      <div class="mix-button">Замешать колоду</div>
+
+      <section class="deck">
+        <div class="deck__state">
+          <div class="deck__dots">
+            <div class="deck__dot green">0</div>
+            <div class="deck__dot brown">0</div>
+            <div class="deck__dot blue">0</div>
+          </div>
+          <div class="deck__dots">
+            <div class="deck__dot green">0</div>
+            <div class="deck__dot brown">0</div>
+            <div class="deck__dot blue">0</div>
+          </div>
+          <div class="deck__dots">
+            <div class="deck__dot green">0</div>
+            <div class="deck__dot brown">0</div>
+            <div class="deck__dot blue">0</div>
+          </div>
+        </div>
+
+        <div class="deck__cards">
+          <div class="deck__next-card"></div>
+          <div class="deck__current-card"></div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
