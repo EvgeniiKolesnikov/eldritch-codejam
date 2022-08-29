@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #ddd;
+  text-align: center;
+}
+.main {
+  height: 100vh;
+  background-image: url("home.b3f91b86.png");
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.levels {
+  width: 100%;
+  max-width: 800px;
+  max-width: 1250px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  border: 0px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.levels__logo {
+  width: 100%;
+  border-radius: 12px;
+  border: 5px solid transparent;
+  cursor: pointer;
+}
+.levels__logo.active {
+  border: 5px double #045e9b;
+  border-radius: 9px;
+}
+.levels__logo:hover {
+  filter: brightness(1.1);
+}
+.levels__logo:active {
+  filter: brightness(0.9);
+}
+.difficulties {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 7px 25px 17px;
+}
+.difficulties__difficulty {
+  width: 120px;
+  padding: 5px;
+  /* border: 1px solid red; */
+  border-radius: 3px;
+  background-color: #676767;
+  cursor: pointer;
+}
+.difficulties__difficulty.active {
+  background-color: #9b0404;
+  background-color: #045e9b;
+}
+.difficulties__difficulty:hover {
+  filter: brightness(1.1);
+}
+.difficulties__difficulty:active {
+  filter: brightness(0.9);
+}
+.mix-button {
+  width: 200px;
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #27861b;
+  pointer-events: none;
+  background-color: rgba(65, 65, 65, 0.2);
+  color: #4a4a4a;
+}
+.mix-button:hover {
+  filter: brightness(1.1);
+}
+.mix-button:active {
+  filter: brightness(0.9);
+}
+.mix-button.active {
+  display: block;
+  /* border: 1px solid red; */
+  /* background-color: rgba(134, 27, 27, 0.2); */
+  color: #ddd;
+  /* border: 1px solid #3a7100; */
+  background-color: rgb(0, 109, 34);
+  /* color: #afd2af; */
+  cursor: pointer;
+  pointer-events: all;
+}
+.deck {
+  height: 60vh;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+.deck__state {
+  height: 200px;
+  width: 350px;
+  padding: 59px 0px 0px 137px;
+  margin: 0 auto;
+  background-image: url("stat.5c635e04.png");
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0px 0px 28px 9px rgb(30, 30, 30) inset;
+}
+
+.deck__dots {
+  width: 138px;
+  height: 39px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.deck__dot {
+  user-select: none;
+}
+
+.deck__cards {
+  height: 200px;
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.deck__next-card {
+  height: 100%;
+  width: 135px;
+  background-image: url("mythicCardBackground.a9ac3592.png");
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgb(30, 30, 30) inset;
+  cursor: pointer;
+}
+.deck__next-card:hover {
+  filter: brightness(1.1);
+}
+.deck__next-card:active {
+  filter: brightness(0.9);
+}
+
+.deck__current-card {
+  height: 100%;
+  width: 135px;
+  background-image: url("mythicCardBackground.a9ac3592.png");
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgb(30, 30, 30) inset;
+}
+
+/*# sourceMappingURL=style.f63937c5.css.map */
