@@ -18,9 +18,12 @@ const resetActive = (div) => {
 };
 
 const setActive = (div) => {
-  const text = div.textContent
+  const text = div.textContent.trim()
   div.classList.add('active');
   resetGame();
+  console.log(text);
+  console.log(diffs.get(text));
+
   game.difficulty = diffs.get(text);
   game.isGame = false;
   console.log(game);

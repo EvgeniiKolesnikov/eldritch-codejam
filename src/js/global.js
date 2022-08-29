@@ -22,7 +22,7 @@ export const game = {
 };
 
 export const resetGame = () => {
-  console.log('reset');
+  // console.log('reset');
   game.isGame = false;
   game.firstStage = {};
   game.secondStage = {};
@@ -32,7 +32,7 @@ export const resetGame = () => {
 
 export const checkStart = () => {
   if (game.difficulty !== '' && game.level !== '' && !game.isGame) {
-    console.log('can start');
+    // console.log('can start');
     return true;
   }
 };
