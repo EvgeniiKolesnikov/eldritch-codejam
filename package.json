@@ -7,10 +7,10 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://evgeniikolesnikov.github.io/eldritch-codejam/",
-  "dependencies": {
-    "sass": "^1.54.4"
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.54.5"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html -d build --public-url=. --no-minify"

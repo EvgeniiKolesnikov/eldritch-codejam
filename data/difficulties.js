@@ -5,7 +5,7 @@ export const diffData = [
   },
   {
     id: 'easy',
-    name: 'Легкая броня',
+    name: 'Легкая походка',
   },
   {
     id: 'normal',
