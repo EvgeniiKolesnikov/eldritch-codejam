@@ -1,20 +1,26 @@
-import { game, checkStart } from "./global";
+import { game, checkStart, resetGame } from "./global";
 import { setActiveMixBtn } from "./mix-button";
+import { diffData } from '../../data/difficulties';
 
 const difficulties = document.querySelector('.difficulties');
-// console.dir(difficulties);
 
-const diffs = {
-  'Очень легко' : 1,
-  'Легко' : 2,
-  'Средне' : 3,
-  'Тяжело' : 4,
-  'Очень тяжко' : 5,
-};
+// const diffs = {
+//   'Очень легко' : 1,
+//   'Легко' : 2,
+//   'Средне' : 3,
+//   'Тяжело' : 4,
+//   'Очень тяжко' : 5,
+// };
+
+const diffs = new Map();
+for (let i = 0; i < diffData.length; i++) {
+  diffs.set(diffData[i].name, diffData[i].id)
+}
+
+console.log(diffs);
 
 const resetActive = (div) => {
   for (const child of div.children) {
-    // console.log(child);
     child.classList.remove('active');
   }
 };
@@ -22,8 +28,8 @@ const resetActive = (div) => {
 const setActive = (div) => {
   const text = div.textContent
   div.classList.add('active');
-  // console.log(diffs[text]);
-  game.difficulty = diffs[text];
+  resetGame();
+  game.difficulty = diffs.get(text);
   game.isGame = false;
   console.log(game);
 };

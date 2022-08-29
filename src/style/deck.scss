@@ -9,7 +9,7 @@
   &__state {
     height: 200px;
     width: 350px;
-    padding: 60px 0px 0px 137px;
+    padding: 59px 0px 0px 137px;
     margin: 0 auto;
 
     background-image: url("../../assets/stat.png");
@@ -26,7 +26,9 @@
   height: 39px;
   display: flex;
   justify-content: space-between;
+  
   font-size: 20px;
+  font-family: monospace;
 }
 
 .deck__dot {

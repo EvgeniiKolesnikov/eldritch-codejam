@@ -1,4 +1,4 @@
-import { game, checkStart } from "./global";
+import { game, checkStart, resetGame } from "./global";
 import { setActiveMixBtn } from "./mix-button";
 
 const levels = document.querySelector('.levels')
@@ -15,9 +15,10 @@ const resetActive = (div) => {
 const setActive = (div) => {
   div.classList.add('active');
   // console.log(div.textContent);
+  resetGame();
   game.level = div.id;
   game.isGame = false;
-  console.log(game);
+  // console.log(game);
 }
 
 const changeLevel = (e) => {

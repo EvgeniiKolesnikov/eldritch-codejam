@@ -1,3 +1,5 @@
+import { setState } from "./state";
+
 export const game = {
   difficulty: '',
   level: '',
@@ -17,6 +19,15 @@ export const game = {
     blueCards: 0,
     brownCards: 0,
   },
+};
+
+export const resetGame = () => {
+  console.log('reset');
+  game.isGame = false;
+  game.firstStage = {};
+  game.secondStage = {};
+  game.thirdStage = {};
+  setState();
 };
 
 export const checkStart = () => {
