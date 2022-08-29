@@ -1,0 +1,21 @@
+{
+  "name": "eldritch",
+  "version": "1.0.0",
+  "description": "eldritch helper",
+  "main": "src/js/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://evgeniikolesnikov.github.io/eldritch-codejam/",
+  "dependencies": {
+    "sass": "^1.54.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html -d build --public-url=. --no-minify"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
