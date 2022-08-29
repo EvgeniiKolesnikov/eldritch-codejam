@@ -200,7 +200,7 @@ const game = {
 exports.game = game;
 
 const resetGame = () => {
-  console.log('reset');
+  // console.log('reset');
   game.isGame = false;
   game.firstStage = {};
   game.secondStage = {};
@@ -212,7 +212,7 @@ exports.resetGame = resetGame;
 
 const checkStart = () => {
   if (game.difficulty !== '' && game.level !== '' && !game.isGame) {
-    console.log('can start');
+    // console.log('can start');
     return true;
   }
 }; // export const startGame = () => {
@@ -983,7 +983,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setDeck = void 0;
+exports.setDeck = exports.setCountCards = exports.setColorDeck = exports.delCards = exports.deck = void 0;
 
 var _mythicCards = require("../../data/mythicCards");
 
@@ -994,19 +994,117 @@ var _global = require("./global");
 // 'Средне' набор остается нетронутым
 // 'Тяжело' убираются карты со снежинками
 // 'Очень тяжко' все с щупальцами + добираются обычные
-const deck = {};
-let greenCardsDeck = [];
 console.log(_global.game.difficulty);
+const deck = {
+  greenCardsCount: 0,
+  blueCardsCount: 0,
+  brownCardsCount: 0,
+  greenCardsDeck: [],
+  blueCardsDeck: [],
+  brownCardsDeck: []
+};
+exports.deck = deck;
+
+const setCountCards = () => {
+  deck.greenCardsCount = _global.game.firstStage.greenCards + _global.game.secondStage.greenCards + _global.game.thirdStage.greenCards;
+  deck.blueCardsCount = _global.game.firstStage.blueCards + _global.game.secondStage.blueCards + _global.game.thirdStage.blueCards;
+  deck.brownCardsCount = _global.game.firstStage.brownCards + _global.game.secondStage.brownCards + _global.game.thirdStage.brownCards;
+};
+
+exports.setCountCards = setCountCards;
+let greenCardsDeck = [];
+let blueCardsDeck = [];
+let brownCardsDeck = []; // export const setColorDeck = (colorDeck, arr, diff1, diff2, diff3) => {
+//   // setCountCards();
+//   // console.log(colorDeck, diff1, diff2, diff3);
+//   // console.log('game.difficulty', game.difficulty);
+//   let filteredArr = arr.filter(
+//     (card) =>
+//       card.difficulty === diff1 ||
+//       card.difficulty === diff2 ||
+//       card.difficulty === diff3
+//   );
+//   console.log('filteredArr = ', filteredArr);
+//   deck[colorDeck] = filteredArr;
+//   console.log('deck = ', deck);
+// };
+
+const setColorDeck = (colorDeck, arr, diff1, diff2, diff3, count) => {
+  // setCountCards();
+  // console.log(colorDeck, diff1, diff2, diff3);
+  // console.log('game.difficulty', game.difficulty);
+  let filteredArr = arr.filter(card => card.difficulty === diff1 || card.difficulty === diff2 || card.difficulty === diff3);
+  let filteredNormal = arr.filter(card => card.difficulty === 'normal');
+  console.log('filteredArr = ', filteredArr);
+  console.log('filteredNormal = ', filteredNormal);
+
+  while (deck[colorDeck].length < filteredArr.length && deck[colorDeck].length < deck[count]) {
+    const rand = Math.floor(Math.random() * filteredArr.length);
+    const newElem = filteredArr[rand];
+
+    if (deck[colorDeck].indexOf(newElem) === -1) {
+      deck[colorDeck].push(newElem);
+    }
+  }
+
+  while (deck[colorDeck].length < deck[count]) {
+    const rand = Math.floor(Math.random() * filteredNormal.length);
+    const newElem = filteredNormal[rand];
+
+    if (deck[colorDeck].indexOf(newElem) === -1) {
+      deck[colorDeck].push(newElem);
+    }
+  } // deck[colorDeck] = filteredArr;
+
+
+  console.log('deck = ', deck);
+};
+
+exports.setColorDeck = setColorDeck;
 
 const setDeck = () => {
+  setCountCards(); // console.log(deck);
+
+  console.log(_global.game.difficulty);
+
   if (_global.game.difficulty === 'veryeasy') {
-    greenCardsDeck = _mythicCards.greenCards.filter(card => card.difficulty === 'easy' || card.difficulty === 'normal');
-    console.log(_mythicCards.greenCards);
-    console.log(greenCardsDeck);
+    setColorDeck('greenCardsDeck', _mythicCards.greenCards, 'easy', 'easy', 'easy', 'greenCardsCount');
+    setColorDeck('blueCardsDeck', _mythicCards.blueCards, 'easy', 'easy', 'easy', 'blueCardsCount');
+    setColorDeck('brownCardsDeck', _mythicCards.brownCards, 'easy', 'easy', 'easy', 'brownCardsCount');
+  }
+
+  if (_global.game.difficulty === 'easy') {
+    setColorDeck('greenCardsDeck', _mythicCards.greenCards, 'easy', 'normal', 'normal', 'greenCardsCount');
+    setColorDeck('blueCardsDeck', _mythicCards.blueCards, 'easy', 'normal', 'normal', 'blueCardsCount');
+    setColorDeck('brownCardsDeck', _mythicCards.brownCards, 'easy', 'normal', 'normal', 'brownCardsCount');
+  }
+
+  if (_global.game.difficulty === 'normal') {
+    setColorDeck('greenCardsDeck', _mythicCards.greenCards, 'easy', 'normal', 'hard', 'greenCardsCount');
+    setColorDeck('blueCardsDeck', _mythicCards.blueCards, 'easy', 'normal', 'hard', 'blueCardsCount');
+    setColorDeck('brownCardsDeck', _mythicCards.brownCards, 'easy', 'normal', 'hard', 'brownCardsCount');
+  }
+
+  if (_global.game.difficulty === 'hard') {
+    setColorDeck('greenCardsDeck', _mythicCards.greenCards, 'hard', 'normal', 'normal', 'greenCardsCount');
+    setColorDeck('blueCardsDeck', _mythicCards.blueCards, 'hard', 'normal', 'normal', 'blueCardsCount');
+    setColorDeck('brownCardsDeck', _mythicCards.brownCards, 'hard', 'normal', 'normal', 'brownCardsCount');
+  }
+
+  if (_global.game.difficulty === 'veryhard') {
+    setColorDeck('greenCardsDeck', _mythicCards.greenCards, 'hard', 'hard', 'hard', 'greenCardsCount');
+    setColorDeck('blueCardsDeck', _mythicCards.blueCards, 'hard', 'hard', 'hard', 'blueCardsCount');
+    setColorDeck('brownCardsDeck', _mythicCards.brownCards, 'hard', 'hard', 'hard', 'brownCardsCount');
   }
 };
 
 exports.setDeck = setDeck;
+
+const delCards = arr => {
+  console.log(arr);
+};
+
+exports.delCards = delCards;
 },{"../../data/mythicCards":"tS8o","./global":"OZyt"}],"MpO1":[function(require,module,exports) {
 "use strict";
 
@@ -1079,7 +1177,7 @@ const diffData = [{
   name: 'Мокрая Снежинка'
 }, {
   id: 'easy',
-  name: 'Легкая броня'
+  name: 'Легкая походка'
 }, {
   id: 'normal',
   name: 'Середина Экватора'
@@ -1100,14 +1198,7 @@ var _mixButton = require("./mix-button");
 
 var _difficulties = require("../../data/difficulties");
 
-const difficulties = document.querySelector('.difficulties'); // const diffs = {
-//   'Очень легко' : 1,
-//   'Легко' : 2,
-//   'Средне' : 3,
-//   'Тяжело' : 4,
-//   'Очень тяжко' : 5,
-// };
-
+const difficulties = document.querySelector('.difficulties');
 const diffs = new Map();
 
 for (let i = 0; i < _difficulties.diffData.length; i++) {
@@ -1123,9 +1214,11 @@ const resetActive = div => {
 };
 
 const setActive = div => {
-  const text = div.textContent;
+  const text = div.textContent.trim();
   div.classList.add('active');
   (0, _global.resetGame)();
+  console.log(text);
+  console.log(diffs.get(text));
   _global.game.difficulty = diffs.get(text);
   _global.game.isGame = false;
   console.log(_global.game);
@@ -1201,6 +1294,7 @@ require("./src/js/state");
 
 require("./src/js/deck");
 
-console.log('index');
+console.warn('!!! Ахаха. о5 я не успеваю. капец какой-то... :(');
+console.warn('!!! Если возможно, проверяйте после 30 числа... я сделал тут только верстку и трекер. загоняюсь с замешиванием карт...');
 },{"./src/js/global":"OZyt","./src/js/difficulties":"SIY2","./src/js/levels":"Ibj8","./src/js/mix-button":"MpO1","./src/js/state":"Oken","./src/js/deck":"sFLM"}]},{},["Focm"], null)
-//# sourceMappingURL=eldritch-codejam.8aa26444.js.map
+//# sourceMappingURL=eldritch-codejam.60400aa5.js.map
