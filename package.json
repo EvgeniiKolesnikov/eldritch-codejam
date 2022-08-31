@@ -9,11 +9,11 @@
   "homepage": "https://evgeniikolesnikov.github.io/eldritch-codejam/",
   "dependencies": {},
   "devDependencies": {
-    "sass": "^1.54.5"
+    "sass": "^1.54.7"
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d build --public-url=. --no-minify"
+    "build": "parcel build index.html -d build --public-url= --no-minify"
   },
   "browserslist": [
     "last 1 Chrome version"
