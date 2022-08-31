@@ -28,7 +28,7 @@ const stats = {
 // console.log(secondStage);
 // console.log(thirdStage);
 
-console.log(stats);
+// console.log(stats);
 
 
 const setStage = (name) => {

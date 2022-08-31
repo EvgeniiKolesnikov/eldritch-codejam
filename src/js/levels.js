@@ -1,8 +1,9 @@
+// import { resetNumCard } from "./cardFlipper";
 import { game, checkStart, resetGame } from "./global";
-import { setActiveMixBtn } from "./mix-button";
+import { hideDeck, setActiveMixBtn } from "./mix-button";
 
 const levels = document.querySelector('.levels')
-console.dir(levels);
+// console.dir(levels);
 
 const resetActive = (div) => {
   // console.dir(div);
@@ -16,6 +17,8 @@ const setActive = (div) => {
   div.classList.add('active');
   // console.log(div.textContent);
   resetGame();
+  hideDeck();
+  // resetNumCard();
   game.level = div.id;
   game.isGame = false;
   // console.log(game);
@@ -27,7 +30,7 @@ const changeLevel = (e) => {
   // console.dir(target);
   if (className === 'levels__logo') {
     // console.dir(target);
-    console.log(target.id);
+    // console.log('level = ', target.id);
     resetActive(levels);
     setActive(target);
     // checkStart();

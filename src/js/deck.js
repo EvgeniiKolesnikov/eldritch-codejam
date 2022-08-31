@@ -6,8 +6,9 @@
 
 import { blueCards, brownCards, greenCards } from '../../data/mythicCards';
 import { game } from './global';
+import { setState } from './state';
 
-console.log(game.difficulty);
+// console.log(game.difficulty);
 
 export const deck = {
   greenCardsCount: 0,
@@ -33,93 +34,91 @@ export const setCountCards = () => {
     game.thirdStage.brownCards;
 };
 
-let greenCardsDeck = [];
-let blueCardsDeck = [];
-let brownCardsDeck = [];
+export let mainDeck = [];
+let firstDeck = [];
+let secondDeck = [];
+let thirdDeck = [];
 
-// export const setColorDeck = (colorDeck, arr, diff1, diff2, diff3) => {
-//   // setCountCards();
-//   // console.log(colorDeck, diff1, diff2, diff3);
-//   // console.log('game.difficulty', game.difficulty);
+export const getRandom = (arr) => {
+  return Math.floor(Math.random() * arr.length);
+};
 
-//   let filteredArr = arr.filter(
-//     (card) =>
-//       card.difficulty === diff1 ||
-//       card.difficulty === diff2 ||
-//       card.difficulty === diff3
-//   );
-//   console.log('filteredArr = ', filteredArr);
-//   deck[colorDeck] = filteredArr;
-//   console.log('deck = ', deck);
-// };
-
-export const setColorDeck = (colorDeck, arr, diff1, diff2, diff3, count) => {
-  // setCountCards();
-  // console.log(colorDeck, diff1, diff2, diff3);
-  // console.log('game.difficulty', game.difficulty);
-  let filteredArr = arr.filter(
+export const setColorDeck = (
+  colorDeck,
+  arr,
+  diffMust,
+  diff1,
+  diff2,
+  diff3,
+  count
+) => {
+  let arrMust = arr.filter((card) => card.difficulty === diffMust);
+  let arrMaybe = arr.filter(
     (card) =>
       card.difficulty === diff1 ||
       card.difficulty === diff2 ||
       card.difficulty === diff3
   );
 
-  let filteredNormal = arr.filter((card) => card.difficulty === 'normal');
+  // console.log('arrMust = ', arrMust);
+  // console.log('arrMaybe = ', arrMaybe);
 
-  console.log('filteredArr = ', filteredArr);
-  console.log('filteredNormal = ', filteredNormal);
+  deck[colorDeck].length = 0;
 
   while (
-    deck[colorDeck].length < filteredArr.length &&
+    deck[colorDeck].length < arrMust.length &&
     deck[colorDeck].length < deck[count]
   ) {
-    const rand = Math.floor(Math.random() * filteredArr.length);
-    const newElem = filteredArr[rand];
+    const rand = getRandom(arrMust);
+    const newElem = arrMust[rand];
+
     if (deck[colorDeck].indexOf(newElem) === -1) {
       deck[colorDeck].push(newElem);
     }
   }
 
   while (deck[colorDeck].length < deck[count]) {
-    const rand = Math.floor(Math.random() * filteredNormal.length);
-    const newElem = filteredNormal[rand];
+    const rand = getRandom(arrMaybe);
+    const newElem = arrMaybe[rand];
     if (deck[colorDeck].indexOf(newElem) === -1) {
-      deck[colorDeck].push(newElem);
+      const randPlace = getRandom(deck[colorDeck]);
+      deck[colorDeck].splice(randPlace, 0, newElem);
     }
   }
-
-  // deck[colorDeck] = filteredArr;
-  console.log('deck = ', deck);
+  // console.log('deck = ', deck);
 };
 
 export const setDeck = () => {
   setCountCards();
   // console.log(deck);
-  console.log(game.difficulty);
+  // console.log('difficulty =', game.difficulty);
 
   if (game.difficulty === 'veryeasy') {
     setColorDeck(
       'greenCardsDeck',
       greenCards,
       'easy',
-      'easy',
-      'easy',
+      'normal',
+      'normal',
+      'normal',
       'greenCardsCount'
     );
     setColorDeck(
       'blueCardsDeck',
       blueCards,
       'easy',
-      'easy',
-      'easy',
+      'normal',
+      'normal',
+      'normal',
       'blueCardsCount'
     );
     setColorDeck(
       'brownCardsDeck',
       brownCards,
       'easy',
-      'easy',
-      'easy',
+      'normal',
+      'normal',
+      'normal',
       'brownCardsCount'
     );
   }
@@ -128,6 +127,7 @@ export const setDeck = () => {
     setColorDeck(
       'greenCardsDeck',
       greenCards,
+      '',
       'easy',
       'normal',
       'normal',
@@ -136,6 +136,7 @@ export const setDeck = () => {
     setColorDeck(
       'blueCardsDeck',
       blueCards,
+      '',
       'easy',
       'normal',
       'normal',
@@ -144,6 +145,7 @@ export const setDeck = () => {
     setColorDeck(
       'brownCardsDeck',
       brownCards,
+      '',
       'easy',
       'normal',
       'normal',
@@ -155,6 +157,7 @@ export const setDeck = () => {
     setColorDeck(
       'greenCardsDeck',
       greenCards,
+      '',
       'easy',
       'normal',
       'hard',
@@ -163,6 +166,7 @@ export const setDeck = () => {
     setColorDeck(
       'blueCardsDeck',
       blueCards,
+      '',
       'easy',
       'normal',
       'hard',
@@ -171,6 +175,7 @@ export const setDeck = () => {
     setColorDeck(
       'brownCardsDeck',
       brownCards,
+      '',
       'easy',
       'normal',
       'hard',
@@ -182,6 +187,7 @@ export const setDeck = () => {
     setColorDeck(
       'greenCardsDeck',
       greenCards,
+      '',
       'hard',
       'normal',
       'normal',
@@ -190,6 +196,7 @@ export const setDeck = () => {
     setColorDeck(
       'blueCardsDeck',
       blueCards,
+      '',
       'hard',
       'normal',
       'normal',
@@ -198,6 +205,7 @@ export const setDeck = () => {
     setColorDeck(
       'brownCardsDeck',
       brownCards,
+      '',
       'hard',
       'normal',
       'normal',
@@ -210,29 +218,117 @@ export const setDeck = () => {
       'greenCardsDeck',
       greenCards,
       'hard',
-      'hard',
-      'hard',
+      'normal',
+      'normal',
+      'normal',
       'greenCardsCount'
     );
     setColorDeck(
       'blueCardsDeck',
       blueCards,
       'hard',
-      'hard',
-      'hard',
+      'normal',
+      'normal',
+      'normal',
       'blueCardsCount'
     );
     setColorDeck(
       'brownCardsDeck',
       brownCards,
       'hard',
-      'hard',
-      'hard',
+      'normal',
+      'normal',
+      'normal',
       'brownCardsCount'
     );
   }
 };
 
-export const delCards = (arr) => {
-  console.log(arr);
+export const setStageDeck = (stageDeck, stageDeck2, stageDeck3, stage) => {
+  stageDeck.length = 0;
+
+  const blueArr = game[stage].blueCards;
+  const brownArr = game[stage].brownCards;
+  const greenArr = game[stage].greenCards;
+
+  while (stageDeck.length < blueArr) {
+    const rand = getRandom(deck.blueCardsDeck);
+    const newElem = deck.blueCardsDeck[rand];
+    if (
+      stageDeck.indexOf(newElem) === -1 &&
+      stageDeck2.indexOf(newElem) === -1 &&
+      stageDeck3.indexOf(newElem) === -1
+    ) {
+      stageDeck.push(newElem);
+    }
+  }
+
+  while (stageDeck.length < blueArr + greenArr) {
+    const rand = getRandom(deck.greenCardsDeck);
+    const newElem = deck.greenCardsDeck[rand];
+    if (
+      stageDeck.indexOf(newElem) === -1 &&
+      stageDeck2.indexOf(newElem) === -1 &&
+      stageDeck3.indexOf(newElem) === -1
+    ) {
+      stageDeck.push(newElem);
+    }
+  }
+
+  while (stageDeck.length < blueArr + greenArr + brownArr) {
+    const rand = getRandom(deck.brownCardsDeck);
+    const newElem = deck.brownCardsDeck[rand];
+    if (
+      stageDeck.indexOf(newElem) === -1 &&
+      stageDeck2.indexOf(newElem) === -1 &&
+      stageDeck3.indexOf(newElem) === -1
+    ) {
+      const randPlace = getRandom(stageDeck);
+      stageDeck.splice(randPlace, 0, newElem);
+    }
+  }
+  // console.log(stageDeck);
+};
+
+export const setAllDecks = () => {
+  mainDeck.length = 0;
+
+  setStageDeck(firstDeck, secondDeck, thirdDeck, 'firstStage');
+  mainDeck.unshift(...firstDeck);
+  setStageDeck(secondDeck, firstDeck, thirdDeck, 'secondStage');
+  mainDeck.unshift(...secondDeck);
+  setStageDeck(thirdDeck, firstDeck, secondDeck, 'thirdStage');
+  mainDeck.unshift(...thirdDeck);
+  console.log('deck = ', mainDeck);
+};
+
+export const updateStages = (shownCard, numCard) => {
+  if (shownCard.color === 'green') {
+    if (numCard < firstDeck.length) {
+      game.firstStage.greenCards -= 1;
+    } else if (numCard < firstDeck.length + secondDeck.length) {
+      game.secondStage.greenCards -= 1;
+    } else {
+      game.thirdStage.greenCards -= 1;
+    }
+  } 
+  if (shownCard.color === 'blue') {
+    if (numCard < firstDeck.length) {
+      game.firstStage.blueCards -= 1;
+    } else if (numCard < firstDeck.length + secondDeck.length) {
+      game.secondStage.blueCards -= 1;
+    } else {
+      game.thirdStage.blueCards -= 1;
+    }
+  } 
+  if (shownCard.color === 'brown') {
+    if (numCard < firstDeck.length) {
+      game.firstStage.brownCards -= 1;
+    } else if (numCard < firstDeck.length + secondDeck.length) {
+      game.secondStage.brownCards -= 1;
+    } else {
+      game.thirdStage.brownCards -= 1;
+    }
+  } 
+  setState();
 };

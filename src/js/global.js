@@ -36,10 +36,3 @@ export const checkStart = () => {
     return true;
   }
 };
-
-// export const startGame = () => {
-//   if (game.difficulty !== '' && game.level !== '') {
-//     console.log('can start');
-//     return true
-//   }
-// }
