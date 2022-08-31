@@ -1261,7 +1261,7 @@ const currCardElem = document.querySelector('.deck__current-card');
 let numCard = 0;
 
 const showCurrCard = currCard => {
-  currCardElem.style.backgroundImage = `url(.${currCard.cardFace})`;
+  currCardElem.style.backgroundImage = `url(${currCard.cardFace})`;
 };
 
 exports.showCurrCard = showCurrCard;
@@ -1430,4 +1430,4 @@ require("./src/js/deck");
 console.warn('!!! Доделал всё... ура :) !!!');
 console.warn('Дедлайн был день назад...');
 },{"./src/js/global":"OZyt","./src/js/cardFlipper":"lDUI","./src/js/difficulties":"SIY2","./src/js/levels":"Ibj8","./src/js/mix-button":"MpO1","./src/js/state":"Oken","./src/js/deck":"sFLM"}]},{},["Focm"], null)
-//# sourceMappingURL=eldritch-codejam.8d4da9f5.js.map
+//# sourceMappingURL=eldritch-codejam.0b0480bb.js.map
