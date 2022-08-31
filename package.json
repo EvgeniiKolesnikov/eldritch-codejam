@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d build --public-url= --no-minify"
+    "build": "parcel build index.html -d build --public-url=. --no-minify"
   },
   "browserslist": [
     "last 1 Chrome version"

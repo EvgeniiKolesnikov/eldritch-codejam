@@ -7,7 +7,7 @@ const currCardElem = document.querySelector('.deck__current-card');
 let numCard = 0;
 
 export const showCurrCard = (currCard) => {
-  currCardElem.style.backgroundImage = `url(.${currCard.cardFace})`;
+  currCardElem.style.backgroundImage = `url(${currCard.cardFace})`;
 }
 
 export const showNextCard = () => {
