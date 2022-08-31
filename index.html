@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eldritch</title>
+    <link rel="stylesheet" href="./src/style/index.scss" />
+    <link rel="shortcut icon" href="./assets/home.png" type="image/x-icon" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body class="body">
+    <main class="main">
+      <section class="difficulties">
+        <div
+          class="difficulties__difficulty"
+          title="все снежинки + добираются обычные"
+        >Мокрая Снежинка</div>
+        <div
+          class="difficulties__difficulty"
+          title="убираются карты с щупальцами"
+        >Легкая походка</div>
+        <div class="difficulties__difficulty" title="стандартный набор">Середина Экватора</div>
+        <div
+          class="difficulties__difficulty"
+          title="убираются карты со снежинками"
+        >Высокий стиль</div>
+        <div
+          class="difficulties__difficulty"
+          title="все щупальцы + добираются обычные"
+        >Ярость Щупальцы</div>
+      </section>
+
+      <section class="levels">
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/Cthulthu.png"
+            alt="Cthulthu"
+            id="cthulhu"
+          />
+        </div>
+
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/ShubNiggurath.png"
+            alt="ShubNiggurath"
+            id="shubNiggurath"
+          />
+        </div>
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/IogSothoth.png"
+            alt="IogSothoth"
+            id="iogSothoth"
+          />
+        </div>
+        <div class="levels__level">
+          <img
+            class="levels__logo"
+            src="./assets/Ancients/Azathoth.png"
+            alt="Azathoth"
+            id="azathoth"
+          />
+        </div>
+      </section>
+
+      <div class="mix-button">Замешать колоду</div>
+
+      <section class="deck">
+        <div class="deck__stats">
+          <div class="deck__state">
+            <div class="deck__dots">
+              <div class="deck__dot green"></div>
+              <div class="deck__dot brown"></div>
+              <div class="deck__dot blue"></div>
+            </div>
+            <div class="deck__dots">
+              <div class="deck__dot green"></div>
+              <div class="deck__dot brown"></div>
+              <div class="deck__dot blue"></div>
+            </div>
+            <div class="deck__dots">
+              <div class="deck__dot green"></div>
+              <div class="deck__dot brown"></div>
+              <div class="deck__dot blue"></div>
+            </div>
+          </div>
+        </div>
+          <div class="deck__cards">
+            <div class="deck__cards-item">
+              <div class="deck__next-card"></div>
+            </div>
+            <div class="deck__cards-item">
+              <div class="deck__current-card hide"></div>
+            </div>
+          </div>
+      </section>
+      
+    </main>
+  </body>
+</html>

@@ -1,16 +1,22 @@
-const difficulties = [
+export const diffData = [
+  {
+    id: 'veryeasy',
+    name: 'Мокрая Снежинка',
+  },
   {
     id: 'easy',
-    name: 'Низкая'
+    name: 'Легкая походка',
   },
   {
     id: 'normal',
-    name: 'Средняя'
+    name: 'Середина Экватора',
   },
   {
     id: 'hard',
-    name: 'Высокая'
+    name: 'Высокий стиль',
   },
-]
-
-export default difficulties
+  {
+    id: 'veryhard',
+    name: 'Ярость Щупальцы',
+  },
+];

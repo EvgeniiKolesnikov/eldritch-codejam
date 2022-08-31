@@ -1,0 +1,43 @@
+.levels {
+  width: 100%;
+  max-width: 800px;
+  max-width: 1150px;
+  // max-width: 500px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+
+  border: 0px;
+  margin: 0 auto;
+    padding: 0 20px;
+  &__level {
+    // width: 25%;
+    // flex-basis: 150px;
+    &.active {
+      // border: 3px solid #9b0404;
+      // border: 3px solid #045e9b;
+      // border-radius: 5px;
+    }
+  }
+  &__logo {
+    width: 100%;
+    border-radius: 12px;
+    border: 5px solid transparent;
+    cursor: pointer;
+    &.active {
+      // border: 3px solid #9b0404;
+      // border: 3px solid #045e9b;
+      border: 5px double #045e9b;
+      border-radius: 9px;
+      
+      // height: 60vh;
+      // width: auto;
+    }
+    &:hover {
+      filter: brightness(1.1);
+    }
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+}
